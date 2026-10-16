@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090d14">
+  <meta name="description" content="Manage campus equipment lending on Sepolia.">
+  <title>Campus Lending — Equipment desk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Campus Lending home">
+        <span class="brand-mark" aria-hidden="true">C<span>.</span></span>
+        <span class="brand-name">campus<span> / </span>lending</span>
+      </a>
+      <div class="topbar-right">
+        <span class="network-pill"><span class="pulse-dot"></span> Sepolia testnet</span>
+        <button id="connect" class="button button-connect"><span class="wallet-icon" aria-hidden="true">↗</span> Connect wallet</button>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="intro" aria-labelledby="page-title">
+        <div class="intro-copy">
+          <p class="eyebrow"><span class="eyebrow-line"></span> CAMPUS EQUIPMENT DESK</p>
+          <h1 id="page-title">Good things<br><span>get shared.</span></h1>
+          <p class="intro-subtitle">A simple place to lend, borrow, and keep track of the gear that keeps campus moving.</p>
+        </div>
+        <div class="intro-art" aria-hidden="true">
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <div class="art-card"><span class="art-card-label">EQUIPMENT<br>ON CAMPUS</span><span class="art-card-glyph">↗</span></div>
+          <div class="art-orb"></div><span class="art-spark spark-one">✳</span><span class="art-spark spark-two">✳</span>
+        </div>
+      </section>
+
+      <section class="connection-panel" aria-label="Wallet connection status">
+        <div class="connection-indicator"><span class="pulse-dot"></span></div>
+        <div class="connection-copy">
+          <span class="panel-label">YOUR SESSION</span>
+          <p id="wallet">Wallet not connected</p>
+        </div>
+        <span class="chain-label"><span class="chain-icon">⛓</span> Ethereum · Sepolia</span>
+      </section>
+
+      <div class="section-heading">
+        <div><p class="eyebrow"><span class="eyebrow-line"></span> LENDING TOOLS</p><h2>Manage equipment</h2></div>
+        <span class="section-index">01 <span>/ 02</span></span>
+      </div>
+
+      <div class="actions-grid">
+        <section class="action-card register-card" aria-labelledby="register-title">
+          <div class="card-topline"><span class="card-number">01</span><span class="card-icon" aria-hidden="true">＋</span></div>
+          <h3 id="register-title">Add to the pool</h3>
+          <p class="card-description">Register a new piece of equipment for the campus community.</p>
+          <div class="field-group">
+            <label for="name">EQUIPMENT NAME</label>
+            <input id="name" maxlength="80" placeholder="e.g. Sony A7 camera" autocomplete="off">
+          </div>
+          <div class="card-footer"><span class="role-note"><span class="lock-icon">⌑</span> ADMIN ONLY</span><button id="add" class="button button-primary">Register item <span>↗</span></button></div>
+        </section>
+
+        <section class="action-card borrow-card" aria-labelledby="borrow-title">
+          <div class="card-topline"><span class="card-number">02</span><span class="card-icon borrow-icon" aria-hidden="true">↗</span></div>
+          <h3 id="borrow-title">Borrow or return</h3>
+          <p class="card-description">Enter an equipment ID to manage a loan or request its return.</p>
+          <div class="field-group">
+            <label for="itemId">EQUIPMENT ID</label>
+            <input id="itemId" type="number" min="1" step="1" placeholder="Enter item ID">
+          </div>
+          <div class="button-row">
+            <button id="borrow" class="button button-primary">Borrow item <span>↗</span></button>
+            <button id="request" class="button button-secondary">Request return</button>
+          </div>
+          <button id="confirm" class="button button-admin"><span class="lock-icon">⌑</span> Confirm return · admin</button>
+        </section>
+      </div>
+
+      <section class="inventory-section" aria-labelledby="inventory-title">
+        <div class="inventory-heading">
+          <div><p class="eyebrow"><span class="eyebrow-line"></span> THE SHARED POOL</p><h2 id="inventory-title">Equipment</h2></div>
+          <button id="refresh" class="button button-refresh"><span aria-hidden="true">↻</span> Refresh list</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>ITEM ID</th><th>EQUIPMENT</th><th>STATUS</th><th>HELD BY</th></tr></thead>
+            <tbody id="items"></tbody>
+          </table>
+          <div class="table-empty"><span class="empty-icon" aria-hidden="true">⌕</span><p>Connect your wallet to see the equipment pool.</p><span>All lending activity is recorded on Sepolia.</span></div>
+        </div>
+        <div class="inventory-foot"><span>SHARED BY YOUR CAMPUS COMMUNITY</span><span class="foot-mark">C<span>.</span></span></div>
+      </section>
+
+      <div id="message" class="status-message" role="status" aria-live="polite"><span class="status-dot"></span><span>Connect your wallet to begin.</span></div>
+    </main>
+    <footer class="site-footer"><span>MADE FOR SHARING <span class="footer-star">✳</span></span><span>ONCHAIN · OPEN TO CAMPUS</span></footer>
+  </div>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
