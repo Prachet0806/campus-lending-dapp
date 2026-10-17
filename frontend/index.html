@@ -62,21 +62,19 @@
             <input id="name" maxlength="80" placeholder="e.g. Sony A7 camera" autocomplete="off">
           </div>
           <div class="card-footer"><span class="role-note"><span class="lock-icon">⌑</span> ADMIN ONLY</span><button id="add" class="button button-primary">Register item <span>↗</span></button></div>
+          <div id="addMessage" class="status-message action-message" role="status" aria-live="polite" aria-atomic="true"><span class="status-dot"></span><span id="addMessageText">Ready to register equipment.</span></div>
         </section>
 
         <section class="action-card borrow-card" aria-labelledby="borrow-title">
           <div class="card-topline"><span class="card-number">02</span><span class="card-icon borrow-icon" aria-hidden="true">↗</span></div>
           <h3 id="borrow-title">Borrow or return</h3>
-          <p class="card-description">Enter an equipment ID to manage a loan or request its return.</p>
-          <div class="field-group">
-            <label for="itemId">EQUIPMENT ID</label>
-            <input id="itemId" type="number" min="1" step="1" placeholder="Enter item ID">
+          <p class="card-description">Each item shows the next action for your wallet. Returns have a simple two-step handoff.</p>
+          <div class="handoff-flow" aria-label="Return handoff steps">
+            <div class="handoff-step"><span>1</span><div><strong>Borrower requests</strong><small>After handing the item back</small></div></div>
+            <span class="handoff-arrow" aria-hidden="true">↓</span>
+            <div class="handoff-step"><span>2</span><div><strong>Admin confirms</strong><small>Item becomes available again</small></div></div>
           </div>
-          <div class="button-row">
-            <button id="borrow" class="button button-primary">Borrow item <span>↗</span></button>
-            <button id="request" class="button button-secondary">Request return</button>
-          </div>
-          <button id="confirm" class="button button-admin"><span class="lock-icon">⌑</span> Confirm return · admin</button>
+          <p class="role-note"><span class="lock-icon">⌑</span> Contract rules still verify every action.</p>
         </section>
       </div>
 
@@ -85,9 +83,10 @@
           <div><p class="eyebrow"><span class="eyebrow-line"></span> THE SHARED POOL</p><h2 id="inventory-title">Equipment</h2></div>
           <button id="refresh" class="button button-refresh"><span aria-hidden="true">↻</span> Refresh list</button>
         </div>
+        <div id="itemsMessage" class="status-message action-message" role="status" aria-live="polite" aria-atomic="true"><span class="status-dot"></span><span id="itemsMessageText">Connect your wallet to borrow or return equipment.</span></div>
         <div class="table-wrap">
           <table>
-            <thead><tr><th>ITEM ID</th><th>EQUIPMENT</th><th>STATUS</th><th>HELD BY</th></tr></thead>
+            <thead><tr><th>ITEM ID</th><th>EQUIPMENT</th><th>STATUS &amp; NEXT STEP</th><th>HELD BY</th><th>YOUR ACTION</th></tr></thead>
             <tbody id="items"></tbody>
           </table>
           <div class="table-empty"><span class="empty-icon" aria-hidden="true">⌕</span><p>Connect your wallet to see the equipment pool.</p><span>All lending activity is recorded on Sepolia.</span></div>
@@ -95,7 +94,16 @@
         <div class="inventory-foot"><span>SHARED BY YOUR CAMPUS COMMUNITY</span><span class="foot-mark">C<span>.</span></span></div>
       </section>
 
-      <div id="message" class="status-message" role="status" aria-live="polite"><span class="status-dot"></span><span>Connect your wallet to begin.</span></div>
+      <section class="activity-section" aria-labelledby="activity-title">
+        <div class="inventory-heading">
+          <div><p class="eyebrow"><span class="eyebrow-line"></span> ONCHAIN RECORD</p><h2 id="activity-title">Recent activity</h2></div>
+          <span class="activity-range">LATEST 10,000 BLOCKS</span>
+        </div>
+        <div id="activity" class="activity-list" aria-live="polite">
+          <p class="activity-empty">Connect your wallet to load recent lending activity.</p>
+        </div>
+      </section>
+
     </main>
     <footer class="site-footer"><span>MADE FOR SHARING <span class="footer-star">✳</span></span><span>ONCHAIN · OPEN TO CAMPUS</span></footer>
   </div>

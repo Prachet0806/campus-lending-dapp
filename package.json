@@ -1,0 +1,14 @@
+{
+  "name": "campus-equipment-lending",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Contract tests for the Campus Equipment Lending DApp",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-ethers": "^3.0.8",
+    "hardhat": "^2.26.3"
+  }
+}
