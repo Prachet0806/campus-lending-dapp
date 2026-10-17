@@ -144,7 +144,7 @@ Run the automated suite using `npm test`. The recorded run passed all 11 tests a
 
 ### 9.4 Blockchain Data Displayed Through the User Interface
 <!-- Screenshot: equipment row showing name, borrower, status, and recent activity loaded from the contract -->
-![Equipment state and recent on-chain activity in the frontend](evidence/UI-admin2.png)
+![Equipment state and recent on-chain activity in the frontend](evidence/UI-admin3.png)
 
 ---
 
